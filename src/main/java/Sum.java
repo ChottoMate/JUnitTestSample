@@ -6,8 +6,12 @@ public class Sum implements Expression {
         this.addend = addend;
     }
 
-    public Expression plus (Expression addend) {
-        return null;
+    public Expression plus(Expression addend) {
+        return new Sum(this, addend);
+    }
+
+    public Expression times(int multiplier) {
+        return new Sum(augend.times(multiplier), addend.times(multiplier));
     }
 
     public Money reduce(Bank bank, String to) {
